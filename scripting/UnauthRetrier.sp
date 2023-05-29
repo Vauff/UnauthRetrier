@@ -48,7 +48,7 @@ Action Timer_CheckAuth(Handle timer, DataPack data)
 			PrintToChat(client, " \x04[SM] \x05Steam has not authenticated you yet, you will be auto retried in \x0F%i seconds \x05if auth does not succeed", seconds);
 
 		DataPack dp;
-		CreateDataTimer(1.0, Timer_CheckAuth, dp);
+		CreateDataTimer(1.0, Timer_CheckAuth, dp, TIMER_FLAG_NO_MAPCHANGE);
 		dp.WriteCell(userid);
 		dp.WriteCell(seconds - 1);
 	}
